@@ -35,8 +35,8 @@ mkfs.ext4 /dev/mapper/home
 
 echo "Partition setup complete."
 
-mkdir -p /mnt/efi /mnt/root
-mount ${PARTITIONS_EFI_DEV}     /mnt/efi
-mount ${PARTITIONS_ROOT_DEV}    /mnt/root
+mount ${PARTITIONS_ROOT_DEV}    /mnt
 
-pacstrap /mnt/root base linux linux-firmware
+pacstrap /mnt base linux linux-firmware
+
+umount /mnt
