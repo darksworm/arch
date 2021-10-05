@@ -21,6 +21,6 @@ echo $FIRST_PARTITION_END $SECOND_PARTITION_END $THRID_PARTITION_END
 # create disk partitions
 parted --script $PARTITIONS_INSTALLATION_DEVICE \
     mklabel gpt \
-    mklabel primary 1MB $FIRST_PARTITION_END \
-    mklabel primary $FIRST_PARTITION_END $SECOND_PARTITION_END \
-    mklabel primary $SECOND_PARTITION_END $THRID_PARTITION_END;
+    mkpart primary 1MB ${FIRST_PARTITION_END}MB \
+    mkpart primary ${FIRST_PARTITION_END}MB ${SECOND_PARTITION_END}MB \
+    mkpart primary ${SECOND_PARTITION_END}MB ${THRID_PARTITION_END}MB
