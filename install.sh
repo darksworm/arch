@@ -28,8 +28,15 @@ PARTITIONS_EFI_DEV=${PARTITIONS_INSTALL_DEV}1
 PARTITIONS_ROOT_DEV=${PARTITIONS_INSTALL_DEV}2
 PARTITIONS_HOME_DEV=${PARTITIONS_INSTALL_DEV}3
 
+echo "Setting up LUKS for home partition"
 cryptsetup luksFormat ${PARTITIONS_HOME_DEV}
 cryptsetup open ${PARTITIONS_HOME_DEV} home
 mkfs.ext4 /dev/mapper/home
 
-echo "Partitions set up."
+echo "Partition setup complete."
+
+mkdir -p /mnt/efi /mnt/root
+mount ${PARTITIONS_EFI_DEV}     /mnt/efi
+mount ${PARTITIONS_ROOT_DEV}    /mnt/root
+
+pacstrap /mnt/root base linux linux-firmware
