@@ -19,9 +19,9 @@ HOME_PARTITION_END=$(expr $SECOND_PARTITION_END + $PARTITIONS_HOME_PARTITION_SIZ
 # create disk partitions
 parted --script $PARTITIONS_INSTALL_DEV \
     mklabel gpt \
-    mkpart primary EFI      fat32   1MiB                       ${EFI_PARTITION_END}MiB  \
-    mkpart primary ROOT     ext4    ${EFI_PARTITION_END}MiB    ${ROOT_PARTITION_END}MiB \
-    mkpart primary HOME     ext4    ${ROOT_PARTITION_END}MiB   ${HOME_PARTITION_END}MiB \
+    mkpart primary fat32    1MiB                       ${EFI_PARTITION_END}MiB  \
+    mkpart primary ext4     ${EFI_PARTITION_END}MiB    ${ROOT_PARTITION_END}MiB \
+    mkpart primary ext4     ${ROOT_PARTITION_END}MiB   ${HOME_PARTITION_END}MiB \
 
 PARTITIONS_EFI_DEV=${PARTITIONS_INSTALL_DEV}1
 PARTITIONS_ROOT_DEV=${PARTITIONS_INSTALL_DEV}2
