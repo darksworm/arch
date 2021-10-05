@@ -7,7 +7,8 @@ PARTITIONS_HOME_PARTITION_SIZE_MB=2048
 PARTITIONS_ROOT_PARTITION_SIZE_MB=16384
 PARTITIONS_EFI_PARTITION_SIZE_MB=512
 
-ping google.com || ( echo google is not reachable! && exit 1 )
+echo "Checking network connectivity"
+ping -c 1 -W 3 google.com &> /dev/null || ( echo google is not reachable! && exit 1 )
 
 timedatectl set-ntp true
 
