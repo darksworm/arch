@@ -31,12 +31,15 @@ PARTITIONS_HOME_DEV=${PARTITIONS_INSTALL_DEV}3
 echo "Setting up LUKS for home partition"
 cryptsetup luksFormat ${PARTITIONS_HOME_DEV}
 cryptsetup open ${PARTITIONS_HOME_DEV} home
+
 mkfs.ext4 /dev/mapper/home
+mkfs.ext4 ${PARTITIONS_ROOT_DEV}
 
 echo "Partition setup complete."
 
-mount ${PARTITIONS_ROOT_DEV}    /mnt
+mount ${PARTITIONS_ROOT_DEV} /mnt
 
 pacstrap /mnt base linux linux-firmware
+genfstab -U /mnt >> /mnt/etc/fstab
 
 umount /mnt
