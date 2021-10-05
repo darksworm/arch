@@ -11,4 +11,10 @@ ping google.com || ( echo google is not reachable! && exit 1 )
 
 timedatectl set-ntp true
 
-
+# create disk partitions
+sfdisk $PARTITIONS_INSTALLATION_DISK -uM << EOF
+,$PARTITIONS_EFI_PARTITION_SIZE_MB
+,$PARTITIONS_ROOT_PARTITION_SIZE_MB
+,$PARTITIONS_HOME_PARTITION_SIZE_MB
+;
+EOF
