@@ -22,10 +22,8 @@ parted --script $PARTITIONS_INSTALL_DEV \
     mkpart primary fat32    1MiB                       ${EFI_PARTITION_END}MiB  \
     mkpart primary ext4     ${EFI_PARTITION_END}MiB    ${ROOT_PARTITION_END}MiB \
     mkpart primary ext4     ${ROOT_PARTITION_END}MiB   ${HOME_PARTITION_END}MiB \
+    set 1 esp on
 
 PARTITIONS_EFI_DEV=${PARTITIONS_INSTALL_DEV}1
 PARTITIONS_ROOT_DEV=${PARTITIONS_INSTALL_DEV}2
 PARTITIONS_HOME_DEV=${PARTITIONS_INSTALL_DEV}3
-
-parted --script $PARTITIONS_INSTALL_DEV \
-    set ${PARTITIONS_EFI_DEV} esp on
