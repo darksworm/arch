@@ -26,5 +26,5 @@ echo "127.0.1.1     $HOSTNAME" >>   /etc/hosts
 
 mkinitcpio -P
 
-pacman -S --noconfirm grub
+pacman -S --noconfirm grub efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/esp --bootloader-id=GRUB
