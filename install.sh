@@ -34,13 +34,19 @@ cryptsetup open ${PARTITIONS_HOME_DEV} home
 
 mkfs.ext4 /dev/mapper/home
 mkfs.ext4 ${PARTITIONS_ROOT_DEV}
+mkfs.vfat ${PARTITIONS_EFI_DEV}
 
 echo "Partition setup complete."
 
 mount ${PARTITIONS_ROOT_DEV} /mnt
+mkdir /mnt/esp
+mount ${PARTITIONS_EFI_DEV}  /mnt/esp
 
 pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 cp chroot.sh /mnt
 arch-chroot /mnt ./chroot.sh
+
+umount /mnt/esp
+umount /mnt
