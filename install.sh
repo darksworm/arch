@@ -42,4 +42,5 @@ mount ${PARTITIONS_ROOT_DEV} /mnt
 pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
+cp chroot.sh /mnt
 arch-chroot /mnt ./chroot.sh
