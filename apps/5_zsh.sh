@@ -15,7 +15,7 @@ for USERNAME in ilmars work; do
         done
         
         chsh -s /bin/zsh
-    EOF
+EOF
 done
 
 sed -i '2d' /etc/pam.d/chsh
