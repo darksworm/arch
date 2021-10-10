@@ -3,7 +3,6 @@
 set -e
 
 HOSTNAME=blacktop
-USERNAME=ilmars
 
 echo We are now CHROOT!
 
@@ -39,12 +38,13 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable dhcpcd
 
-echo Adding user $USERNAME
-
-useradd -m $USERNAME
-passwd $USERNAME
 groupadd sudo
-usermod -a -G sudo $USERNAME
+
+for USERNAME in ilmars work; do
+    echo Adding user $USERNAME
+    useradd -m -G sudo $USERNAME
+    passwd $USERNAME
+done
 
 sed -i '/^root.*/i %sudo ALL=(ALL:ALL) ALL' /etc/sudoers
 
