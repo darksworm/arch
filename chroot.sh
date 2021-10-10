@@ -45,3 +45,5 @@ adduser $USERNAME
 passwd $USERNAME
 groupadd sudo
 usermod -a -G sudo $USERNAME
+
+sed -i '/^root.*/i sudo ALL=(ALL:ALL) ALL' /etc/sudoers
