@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 CONF_DIR=/opt/arch/conf
 BIN_DIR=/opt/arch/bin
 
