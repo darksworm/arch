@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 pacman -S zsh
 
 groupadd chsh
