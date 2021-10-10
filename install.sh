@@ -41,6 +41,7 @@ echo "Partition setup complete."
 mount ${PARTITIONS_ROOT_DEV} /mnt
 mkdir /mnt/boot
 mount ${PARTITIONS_EFI_DEV}  /mnt/boot
+mount /dev/mapper/home /mnt/home
 
 pacstrap /mnt base linux linux-firmware grub efibootmgr vim lvm2 sudo dhcpcd git
 HOME_UUID=$(cryptsetup luksUUID ${PARTITIONS_HOME_DEV})
@@ -53,5 +54,7 @@ cp chroot.sh /mnt
 arch-chroot /mnt ./chroot.sh
 
 rm /mnt/chroot.sh
+umount /mnt/home
 umount /mnt/boot
 umount /mnt
+cryptsetup close home
