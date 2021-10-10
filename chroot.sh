@@ -24,6 +24,11 @@ echo "127.0.0.1     localhost" >    /etc/hosts
 echo "::1           localhost" >>   /etc/hosts
 echo "127.0.1.1     $HOSTNAME" >>   /etc/hosts
 
+# hooks for decrypting LUKS partition
+HOOKS_BASE=$(cat /etc/mkinitcpio.conf | grep -v "#" | grep HOOKS)
+HOOKS_OPEN=$(echo $HOOKS_BASE | sed 's/.$//')
+HOOKS_NEW="$HOOKS_OPEN lvm2 encrypt consolefont keymap"
+sed -i "s/${HOOKS_BASE}/${HOOKS_NEW}/" /etc/mkcpioinit.conf
 
 mkinitcpio -p linux
 
