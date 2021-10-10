@@ -46,6 +46,7 @@ st -c "tmux" -e "tmux" &
 # cursor land
 xbanish & # hide cursor when typing
 
+export GTK_THEME=Arc-Dark
 export _JAVA_AWT_WM_NONREPARENTING=1 # fix for IDEA blank windows
 
 exec dwm
