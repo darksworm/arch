@@ -33,4 +33,4 @@ done
 chmod +x $BIN_DIR/defaultmon
 ln -sf $BIN_DIR/defaultmon /bin/defaultmon
 
-yay -S --noconfirm xbanish
+yay -S --noconfirm xbanish nitrogen sxhkd xcape cbatticon nm-applet pa-applet blueman-applet bluetooth-autoconnect xfce4-power-manager compton xautolock redshfit st
