@@ -42,7 +42,7 @@ mount ${PARTITIONS_ROOT_DEV} /mnt
 mkdir /mnt/boot
 mount ${PARTITIONS_EFI_DEV}  /mnt/boot
 
-pacstrap /mnt base linux linux-firmware
+pacstrap /mnt base linux linux-firmware grub efibootmgr
 HOME_UUID=$(blkid | grep ${PARTITIONS_HOME_DEV} | sed 's/.*PARTUUID=//' | cut -d\" -f2)
 echo home   UUID=${HOME_UUID} >> /mnt/etc/crypttab
 
