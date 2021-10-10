@@ -27,10 +27,10 @@ echo "127.0.1.1     $HOSTNAME" >>   /etc/hosts
 # hooks for decrypting LUKS partition
 HOOKS_BASE=$(cat /etc/mkinitcpio.conf | grep -v "#" | grep HOOKS)
 HOOKS_OPEN=$(echo $HOOKS_BASE | sed 's/.$//')
-HOOKS_NEW="$HOOKS_OPEN lvm2 encrypt consolefont keymap"
+HOOKS_NEW="$HOOKS_OPEN encrypt consolefont keymap"
 sed -i "s/${HOOKS_BASE}/${HOOKS_NEW}/" /etc/mkcpioinit.conf
 
-mkinitcpio -p linux
+mkinitcpio -P
 
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 sed -i 's/\ quiet//g' /etc/default/grub
