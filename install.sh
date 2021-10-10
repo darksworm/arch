@@ -52,6 +52,7 @@ echo /dev/mapper/home   /home   ext4    defaults    0 1 >> /mnt/etc/fstab
 cp chroot.sh /mnt
 arch-chroot /mnt ./chroot.sh
 
+rm /mnt/chroot.sh
 umount /mnt/boot
 umount /mnt
 
