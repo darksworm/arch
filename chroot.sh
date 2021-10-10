@@ -9,6 +9,14 @@ echo We are now CHROOT!
 echo Please enter a password for the root account
 passwd
 
+groupadd sudo
+
+for USERNAME in ilmars work; do
+    echo Adding user $USERNAME
+    useradd -m -G sudo $USERNAME
+    passwd $USERNAME
+done
+
 ln -sf /usr/share/zoneinfo/Europe/Riga /etc/localtime
 hwclock --systohc
 
@@ -36,14 +44,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 echo KEYMAP=lv > /etc/vconsole.conf
 
 systemctl enable dhcpcd
-
-groupadd sudo
-
-for USERNAME in ilmars work; do
-    echo Adding user $USERNAME
-    useradd -m -G sudo $USERNAME
-    passwd $USERNAME
-done
 
 sed -i '/^root.*/i %sudo ALL=(ALL:ALL) ALL' /etc/sudoers
 
