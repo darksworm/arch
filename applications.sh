@@ -16,6 +16,8 @@ pacman -U --noconfirm $(ls -1 | grep tar.zst)
 cd .. && rm -rf yay-git
 pacman -R --noconfirm go
 
+yay # update
+
 # video drivers
 pacman -S --noconfirm xf86-video-intel mesa xorg-xinit
 # xorg server / x11
@@ -33,7 +35,7 @@ done
 chmod +x $BIN_DIR/defaultmon
 ln -sf $BIN_DIR/defaultmon /bin/defaultmon
 
-yay -S --noconfirm xbanish nitrogen sxhkd xcape cbatticon networkmanager pa-applet-git blueman bluetooth-autoconnect xfce4-power-manager compton xautolock redshift st brave-bin
+yay -S --noconfirm --builddir=/tmp xbanish nitrogen sxhkd xcape cbatticon networkmanager pa-applet-git blueman bluetooth-autoconnect xfce4-power-manager compton xautolock redshift st brave-bin
 
 cd /opt
 git clone https://github.com/darksworm/dwm
