@@ -36,8 +36,8 @@ xautolock -time 10 -locker ~/.install/bin/blurlocklog -corners ---- & # pc locke
 redshift -O 4200 &
 
 st -c "tmux" -e "tmux" &
-stretchly &
-emojigun &
+# stretchly &
+# emojigun &
 # discord &
 
 ( sleep 5 && bluetooth-autoconnect ) & # sometimes the autoconnect doesn't work the first time
