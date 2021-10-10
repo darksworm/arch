@@ -47,3 +47,6 @@ groupadd sudo
 usermod -a -G sudo $USERNAME
 
 sed -i '/^root.*/i %sudo ALL=(ALL:ALL) ALL' /etc/sudoers
+
+mkdir /opt
+cd /opt && git clone https://github.com/darksworm/arch
