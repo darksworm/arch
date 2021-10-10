@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 chmod +x $BIN_DIR/defaultmon
 ln -sf $BIN_DIR/defaultmon /bin/defaultmon
 
