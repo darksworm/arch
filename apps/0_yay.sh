@@ -1,3 +1,7 @@
+#!/bin/sh
+
+set -e
+
 pacman -S --noconfirm go
 cd /opt
 git clone https://aur.archlinux.org/yay-git.git
