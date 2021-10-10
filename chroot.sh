@@ -43,4 +43,5 @@ echo Adding user $USERNAME
 
 useradd -m $USERNAME
 passwd $USERNAME
+groupadd sudo
 usermod -a -G sudo $USERNAME
