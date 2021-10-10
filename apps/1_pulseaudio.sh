@@ -2,4 +2,4 @@
 
 set -e
 
-pacman -S --noconfirm alsa pulseaudio pulseaudio-alsa
+pacman -S --noconfirm alsa pulseaudio pulseaudio-alsa pavucontrol
