@@ -3,6 +3,7 @@
 set -e
 
 HOSTNAME=blacktop
+USERNAME=ilmars
 
 echo We are now CHROOT!
 
@@ -35,3 +36,11 @@ mkinitcpio -P
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 sed -i 's/\ quiet//g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
+
+systemctl enable dhcpcd
+
+echo Adding user $USERNAME
+
+useradd -m $USERNAME
+passwd $USERNAME
+usermod -a -G sudo $USERNAME
