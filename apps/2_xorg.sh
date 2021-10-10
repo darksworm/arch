@@ -3,7 +3,7 @@
 # video drivers
 pacman -S --noconfirm xf86-video-intel mesa xorg-xinit
 # xorg server / x11
-pacman -S --noconfirm xorg-server xorg-xbacklight
+pacman -S --noconfirm xorg-server xorg-xbacklight xorg-xset
 
 mkdir -p /etc/X11/xorg.conf.d
 cp $CONF_DIR/30-touchpad.conf /etc/X11/xorg.conf.d/
