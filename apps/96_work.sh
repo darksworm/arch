@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo -i -u work sh << EOF
-yay -S --noconfirm slack
+yay -S --noconfirm slack rsync
 scp ilmars@192.168.1.111:/storage/tank/laptop-backup/work ~/.config/backedup
 rm -rf ~/.ssh ~/.aws ~/.config/JetBrains
 ln -sf /home/work/.config/backedup/ssh ~/.ssh
