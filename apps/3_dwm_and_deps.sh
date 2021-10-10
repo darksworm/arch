@@ -6,7 +6,7 @@ chmod +x $BIN_DIR/defaultmon
 ln -sf $BIN_DIR/defaultmon /bin/defaultmon
 
 sudo -i -u ilmars sh << EOF
-yay -S --noconfirm xbanish nitrogen sxhkd xcape cbatticon networkmanager pa-applet-git xfce4-power-manager compton xautolock redshift st brave-bin
+yay -S --noconfirm xbanish nitrogen sxhkd xcape cbatticon networkmanager pa-applet-git xfce4-power-manager compton xautolock redshift st
 EOF
 
 cd /opt
