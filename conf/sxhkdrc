@@ -1,0 +1,38 @@
+super + o
+    discord
+
+super + c
+    brave
+
+super + Return
+    st
+
+control + shift + s
+    ~/.install/bin/screenshot-region
+
+super + F12
+    ~/.install/bin/blurlocklog
+
+super + F1
+    prepkb
+
+Print
+    scrot
+
+XF86AudioPause
+    playerctl play-pause
+
+XF86AudioPlay
+    playerctl play-pause
+
+XF86AudioNext
+    playerctl next
+
+XF86AudioPrev
+    playerctl previous
+
+F7
+    /bin/defaultmon
+
+F8
+    bluetooth-autoconnect
