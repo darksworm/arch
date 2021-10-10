@@ -24,7 +24,9 @@ echo "127.0.0.1     localhost" >    /etc/hosts
 echo "::1           localhost" >>   /etc/hosts
 echo "127.0.1.1     $HOSTNAME" >>   /etc/hosts
 
-mkinitcpio -P
+
+
+mkinitcpio -p linux
 
 pacman -S --noconfirm grub efibootmgr
-grub-install --target=x86_64-efi --efi-directory=/esp --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
