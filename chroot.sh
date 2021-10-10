@@ -27,7 +27,7 @@ echo "127.0.1.1     $HOSTNAME" >>   /etc/hosts
 # hooks for decrypting LUKS partition
 HOOKS_BASE=$(cat /etc/mkinitcpio.conf | grep -v "#" | grep HOOKS)
 HOOKS_OPEN=$(echo $HOOKS_BASE | sed 's/.$//')
-HOOKS_NEW="$HOOKS_OPEN sd-encrypt sd-lvm2"
+HOOKS_NEW="$HOOKS_OPEN sd-encrypt sd-lvm2)"
 sed -i "s/${HOOKS_BASE}/${HOOKS_NEW}/" /etc/mkinitcpio.conf
 
 mkinitcpio -P
