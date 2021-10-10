@@ -39,8 +39,8 @@ mkfs.vfat ${PARTITIONS_EFI_DEV}
 echo "Partition setup complete."
 
 mount ${PARTITIONS_ROOT_DEV} /mnt
-mkdir /mnt/esp
-mount ${PARTITIONS_EFI_DEV}  /mnt/esp
+mkdir /mnt/boot
+mount ${PARTITIONS_EFI_DEV}  /mnt/boot
 
 pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -48,5 +48,6 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cp chroot.sh /mnt
 arch-chroot /mnt ./chroot.sh
 
-umount /mnt/esp
+umount /mnt/boot
 umount /mnt
+
