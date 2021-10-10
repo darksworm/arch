@@ -14,5 +14,5 @@ for USERNAME in ilmars work; do
     ln -sf $CONF_DIR/xinitrc /home/$USERNAME/.xinitrc
     ln -sf $CONF_DIR/xresources /home/$USERNAME/.Xresources
     ln -sf $CONF_DIR/xmodmap /home/$USERNAME/.Xmodmap
-    ls -sf $CONF_DIR/sxhkd /home/$USERNAME/.config/sxhkd/sxhkdrc
+    ls -sf $CONF_DIR/sxhkdrc /home/$USERNAME/.config/sxhkd/sxhkdrc
 done
