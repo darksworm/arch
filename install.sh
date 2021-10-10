@@ -42,8 +42,8 @@ mount ${PARTITIONS_ROOT_DEV} /mnt
 mkdir /mnt/boot
 mount ${PARTITIONS_EFI_DEV}  /mnt/boot
 
-pacstrap /mnt base linux linux-firmware grub efibootmgr vim
-HOME_UUID=$(blkid | grep ${PARTITIONS_HOME_DEV} | sed 's/\ .*UUID=//' | cut -d\" -f2)
+pacstrap /mnt base linux linux-firmware grub efibootmgr vim lvm2
+HOME_UUID=$(cryptsetup luksUUID ${PARTITIONS_HOME_DEV})
 echo home   UUID=${HOME_UUID}   none    luks,discard >> /mnt/etc/crypttab
 
 genfstab -U /mnt >> /mnt/etc/fstab
