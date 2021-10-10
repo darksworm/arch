@@ -20,9 +20,14 @@ done
 ln -sf /usr/share/zoneinfo/Europe/Riga /etc/localtime
 hwclock --systohc
 
+sed -i 's/#en_US.UTF/en_US.UTF/g' /etc/locale.gen
+sed -i 's/#lv_LV.UTF/lv_LV.UTF/g' /etc/locale.gen
+
 locale-gen
 
-echo LANG=en_US.UTF-8 > /etc/locale.conf
+echo LANG=en_US.UTF-8		>  /etc/locale.conf
+echo LC_ALL=en_US.UTF-8		>> /etc/locale.conf
+
 echo $HOSTNAME > /etc/hostname
 
 echo "127.0.0.1     localhost" >    /etc/hosts
