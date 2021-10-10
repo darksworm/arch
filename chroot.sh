@@ -41,7 +41,7 @@ systemctl enable dhcpcd
 
 echo Adding user $USERNAME
 
-adduser $USERNAME
+useradd -m $USERNAME
 passwd $USERNAME
 groupadd sudo
 usermod -a -G sudo $USERNAME
