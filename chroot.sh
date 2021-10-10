@@ -51,4 +51,5 @@ sed -i '/^root.*/i %sudo ALL=(ALL:ALL) ALL' /etc/sudoers
 mkdir -p /opt
 cd /opt && git clone https://github.com/darksworm/arch
 
+chmod +x /opt/arch/applications.sh
 ./opt/arch/applications.sh
