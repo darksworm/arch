@@ -43,7 +43,7 @@ mkdir /mnt/boot
 mount ${PARTITIONS_EFI_DEV}  /mnt/boot
 mount /dev/mapper/home /mnt/home
 
-pacstrap /mnt base linux linux-firmware grub efibootmgr vim lvm2 sudo dhcpcd git
+pacstrap /mnt base base-devel linux linux-firmware grub efibootmgr vim lvm2 sudo dhcpcd git
 HOME_UUID=$(cryptsetup luksUUID ${PARTITIONS_HOME_DEV})
 echo home   UUID=${HOME_UUID}   none    luks,discard >> /mnt/etc/crypttab
 
