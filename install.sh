@@ -39,7 +39,7 @@ mkfs.vfat ${PARTITIONS_EFI_DEV}
 echo "Partition setup complete."
 
 mount ${PARTITIONS_ROOT_DEV} /mnt
-mkdir /mnt/boot
+mkdir /mnt/boot /mnt/home
 mount ${PARTITIONS_EFI_DEV}  /mnt/boot
 mount /dev/mapper/home /mnt/home
 
