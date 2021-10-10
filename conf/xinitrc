@@ -44,7 +44,6 @@ emojigun &
 
 # cursor land
 xbanish & # hide cursor when typing
-fix_xcursor & # idk what this does
 
 export _JAVA_AWT_WM_NONREPARENTING=1 # fix for IDEA blank windows
 
