@@ -14,5 +14,5 @@ mkdir -p /home/work/.config/JetBrains/DataGrip2021.2
 ln -sf /home/work/.config/backedup/datagrip /home/work/.config/JetBrains/DataGrip2021.2
 
 mkdir ~/dev
-rsync -avz deploy-box:/home/ec2-user/\* ~/dev/
+rsync -avz --exclude 'mysql8' deploy-box:/home/ec2-user/\* ~/dev/
 EOF
