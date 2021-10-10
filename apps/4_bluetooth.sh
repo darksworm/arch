@@ -2,5 +2,5 @@
 
 set -e
 
-pacman -S bluez pulseaudio-bluetooth blueman bluetooth-autoconnect 
+yay -S bluez pulseaudio-bluetooth blueman bluetooth-autoconnect 
 systemctl enable bluetooth
