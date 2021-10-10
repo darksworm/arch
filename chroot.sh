@@ -52,4 +52,4 @@ mkdir -p /opt
 cd /opt && git clone https://github.com/darksworm/arch
 
 chmod +x /opt/arch/applications.sh
-./opt/arch/applications.sh
+sh /opt/arch/applications.sh
