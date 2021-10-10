@@ -43,7 +43,7 @@ mkdir /mnt/boot
 mount ${PARTITIONS_EFI_DEV}  /mnt/boot
 
 pacstrap /mnt base linux linux-firmware
-HOME_UUID=$(blkid | grep ${PARTITIONS_HOME_DEV} | cut -d | sed 's/.*PARTUUID=//' | cut -d\" -f2)
+HOME_UUID=$(blkid | grep ${PARTITIONS_HOME_DEV} | sed 's/.*PARTUUID=//' | cut -d\" -f2)
 echo home   UUID=${HOME_UUID} >> /mnt/etc/crypttab
 
 genfstab -U /mnt >> /mnt/etc/fstab
