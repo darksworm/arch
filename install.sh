@@ -42,9 +42,9 @@ mount ${PARTITIONS_ROOT_DEV} /mnt
 mkdir /mnt/boot
 mount ${PARTITIONS_EFI_DEV}  /mnt/boot
 
-pacstrap /mnt base linux linux-firmware grub efibootmgr
-HOME_UUID=$(blkid | grep ${PARTITIONS_HOME_DEV} | sed 's/.*PARTUUID=//' | cut -d\" -f2)
-echo home   UUID=${HOME_UUID} >> /mnt/etc/crypttab
+pacstrap /mnt base linux linux-firmware grub efibootmgr vim
+HOME_UUID=$(blkid | grep ${PARTITIONS_HOME_DEV} | sed 's/\ .*UUID=//' | cut -d\" -f2)
+echo home   UUID=${HOME_UUID}   none    luks >> /mnt/etc/crypttab
 
 genfstab -U /mnt >> /mnt/etc/fstab
 echo /dev/mapper/home   /home   ext4    defaults    0 1 >> /mnt/etc/fstab
