@@ -19,8 +19,7 @@ sxhkd &
 ( sleep 3 && \
   setxkbmap lv && \
   xset r rate 300 50 && \
-  xmodmap ~/.xmodmap && \
-  xcape -e 'Mode_switch=Escape' ) &
+  xmodmap ~/.Xmodmap ) &
 
 cbatticon & # battery tray
 nm-applet & # network status applet
