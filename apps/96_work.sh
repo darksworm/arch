@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo -i -u work sh << EOF
-yay -S --noconfirm slack rsync
+yay -S --noconfirm slack-desktop rsync
 
 scp -r ilmars@192.168.1.111:/storage/tank/laptop-backup/work ~/.config/backedup
 

@@ -3,7 +3,7 @@
 export_current_user_x_session_vars() {
     export USER=$(last | head -1 | cut -d ' ' -f1)
     export DISPLAY=":0.0"
-    export HOME=/home/$USER/
+    export HOME=/home/$USER
     export XAUTHORITY=$HOME/.Xauthority
 }
 
@@ -14,19 +14,23 @@ if [ "$LAUNCHING_FROM_HEADLESS_RUNNER" = "yes" ]; then
 fi
 
 # switch to laptop screen immediately
-disper --single
+#disper --single
 
 SHOULD_WAIT_FOR_HDMI_TO_APPEAR=$LAUNCHING_FROM_HEADLESS_RUNNER
 
 if [ "$SHOULD_WAIT_FOR_HDMI_TO_APPEAR" = "yes" ]; then
-    sleep 3
+    sleep 1
 fi
 
 HAS_HDMI_CONNECTED=`disper --list | grep -q HDMI && echo "yes" || echo "no"`
 
 if [ "$HAS_HDMI_CONNECTED" = "yes" ]; then
     # switch to second highest resolution first (otherwise DWM doesn't update)
-    disper --list | tail -1 | tr ',' '\n' | tail -2 | head -1 | xargs echo | xargs disper --secondary -r
+    # disper --list | tail -1 | tr ',' '\n' | tail -2 | head -1 | xargs echo | xargs disper --secondary -r
     # switch to highest resolution
-    disper --secondary -r auto
+    # disper --secondary -r auto
+    bash $HOME/.config/screenlayouts/home-main.sh
+else
+    # disper --single -r auto
+    bash $HOME/.config/screenlayouts/default.sh
 fi
