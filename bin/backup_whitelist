@@ -24,6 +24,7 @@
 + .config/nvim/***
 + .config/Slack/***
 + .config/spotify/***
++ .config/Stretchly/***
 + dev/***
 
 - *

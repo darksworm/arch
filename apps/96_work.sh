@@ -1,12 +1,12 @@
 #!/bin/sh
 
 sudo -i -u work sh << EOF
-yay -S --noconfirm slack-desktop rsync docker docker-compose libreoffice networkmanager-openvpn tfswitch
+yay -S --noconfirm slack-desktop rsync docker docker-compose libreoffice networkmanager-openvpn tfswitch stretchly
 
 sudo usermod -a -g docker work
 sudo usermod -a -g docker ilmars
 
-scp -r ilmars@192.168.1.111:/storage/tank/laptop-backup/work ~/.config/backedup
+./opt/arch/bin/work_restore
 
 rm -rf /home/work/.ssh /home/work/.aws /home/work/.config/JetBrains /home/work/dev
 

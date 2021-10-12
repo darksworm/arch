@@ -10,5 +10,5 @@ NAS_BACKUP_DIR=/storage/tank/laptop-backup/work
 
 rsync -avzt \
       --include-from $BASEDIR/backup_whitelist \
-      nas:$NAS_BACKUP_DIR/home/ \
+      ilmars@192.168.1.111:$NAS_BACKUP_DIR/home/ \
       /home/work/
