@@ -55,5 +55,9 @@ sed -i '/^root.*/i %sudo ALL=(ALL:ALL) ALL' /etc/sudoers
 mkdir -p /opt
 cd /opt && git clone https://github.com/darksworm/arch
 
+cd /opt/arch
+git remote rm origin
+git remote add origin git@github.com:darksworm/arch.git
+
 chmod +x /opt/arch/applications.sh
 sh /opt/arch/applications.sh
