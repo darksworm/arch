@@ -3,10 +3,7 @@
 sudo -i -u work sh << EOF
 yay -S --noconfirm slack-desktop rsync docker docker-compose libreoffice networkmanager-openvpn tfswitch stretchly
 
-sudo usermod -a -g docker work
-sudo usermod -a -g docker ilmars
-
-./opt/arch/bin/work_restore
+sh $BIN_DIR/work_restore
 
 rm -rf /home/work/.ssh /home/work/.aws /home/work/.config/JetBrains /home/work/dev
 
@@ -21,3 +18,6 @@ rsync -avz --exclude 'mysql8' deploy-box:/home/ec2-user/\* ~/dev/
 
 tfswitch --latest
 EOF
+
+usermod -a -g docker work
+usermod -a -g docker ilmars
