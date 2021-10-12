@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ "$(whoami)" != "work" ]; then
+    echo This should be run as the work user!
+    exit 1
+fi
+
+BASEDIR=$(dirname "$0")
+NAS_BACKUP_DIR=/storage/tank/laptop-backup/work
+
+ssh nas "mkdir -p $NAS_BACKUP_DIR/home/.config"
+
+rsync -avzt \
+      --include-from $BASEDIR/backup_whitelist \
+      /home/work/ \
+      nas:$NAS_BACKUP_DIR/home

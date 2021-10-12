@@ -1,7 +1,10 @@
 #!/bin/sh
 
 sudo -i -u work sh << EOF
-yay -S --noconfirm slack-desktop rsync
+yay -S --noconfirm slack-desktop rsync docker docker-compose libreoffice networkmanager-openvpn tfswitch
+
+sudo usermod -a -g docker work
+sudo usermod -a -g docker ilmars
 
 scp -r ilmars@192.168.1.111:/storage/tank/laptop-backup/work ~/.config/backedup
 
@@ -15,4 +18,6 @@ ln -sf /home/work/.config/backedup/datagrip /home/work/.config/JetBrains/DataGri
 
 mkdir ~/dev
 rsync -avz --exclude 'mysql8' deploy-box:/home/ec2-user/\* ~/dev/
+
+tfswitch --latest
 EOF

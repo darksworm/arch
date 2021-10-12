@@ -1,0 +1,30 @@
+- Cache
+- Service Worker
+- .terraform
++ .zlogin
++ .zlogout
++ .zpreztorc
++ .zprofile
++ .zprezto/***
++ .zshenv
++ .zsh_history
++ .zshrc
++ .ssh/***
++ .aws/***
++ .bashrc
++ .bash_logout
++ .bash_profile
++ .gitconfig
++ .config/
++ .config/desa
++ .config/BraveSoftware/***
++ .config/activitywatch/***
++ .config/gtk-3.0/***
++ .config/JetBrains/***
++ .config/nvim/***
++ .config/Slack/***
++ .config/spotify/***
++ dev/***
+
+- *
+- .config/*
