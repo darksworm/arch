@@ -6,5 +6,5 @@ sh $BIN_DIR/work_restore
 tfswitch --latest
 EOF
 
-usermod -a -g docker work
-usermod -a -g docker ilmars
+usermod -aG docker work
+usermod -aG docker ilmars
