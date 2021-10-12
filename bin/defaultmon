@@ -34,3 +34,5 @@ else
     # disper --single -r auto
     bash $HOME/.config/screenlayouts/default.sh
 fi
+
+nitrogen --restore

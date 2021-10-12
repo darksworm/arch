@@ -11,7 +11,7 @@ EOF
 
 for USERNAME in ilmars work; do
     mkdir -p /home/$USERNAME/.config/nitrogen
-    ln -sf $CONF_DIR/nitrogen.conf /home/$USERNAME/.config/nitrogen/nitrogen.conf
+    ln -sf $CONF_DIR/nitrogen.cfg /home/$USERNAME/.config/nitrogen/nitrogen.cfg
     chown -R $USERNAME /home/$USERNAME/.config/nitrogen
 done
 
