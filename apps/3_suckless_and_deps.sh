@@ -20,13 +20,17 @@ git clone https://github.com/darksworm/dwm
 cd dwm && make install
 
 cd /opt
-git clone https://github.com/darksworm/st.git
+git clone https://github.com/darksworm/st
 cd st && make install
+
+cd /opt
+git clone https://github.com/darksworm/dmenu-flexipatch.git dmenu
+cd dmenu && make install
 
 groupadd maintainers
 
 usermod -a -G maintainers ilmars
 usermod -a -G maintainers work
 
-chgrp -R maintainers /opt/dwm /opt/st /opt/arch
-chmod -R g+rwx /opt/dwm /opt/st /opt/arch
+chgrp -R maintainers /opt/dwm /opt/st /opt/arch /opt/dmenu
+chmod -R g+rwx /opt/dwm /opt/st /opt/arch /opt/dmenu

@@ -2,7 +2,7 @@
 
 set -e
 
-pacman -S --noconfirm dmenu tmux openssh htop sxiv scrot gnome-keyring libsecret
+pacman -S --noconfirm tmux openssh htop sxiv scrot gnome-keyring libsecret
 
 echo password	optional	pam_gnome_keyring.so >> /etc/pam.d/passwd
 
