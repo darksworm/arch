@@ -44,10 +44,15 @@ st -c "tmux" -e "tmux" &
 if [ $USER == "work" ]; then
     #( which aw-qt && aw-qt ) &
     ( which stretchly && stretchly ) &
+    ( which slack && slack ) &
+    ( which intellij-idea-ultimate-edition && intellij-idea-ultimate-edition ) &
+    ( which datagrip && datagrip ) &
+    ( which brave && brave ) &
 fi
 
 if [ $USER == "ilmars" ]; then
     ( which discord && discord ) &
+    ( which brave && brave ) &
 fi
 
 ( sleep 5 && bluetooth-autoconnect ) & # sometimes the autoconnect doesn't work the first time
