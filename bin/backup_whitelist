@@ -16,7 +16,6 @@
 + .bash_profile
 + .gitconfig
 + .config/
-+ .config/desa
 + .config/BraveSoftware/***
 + .config/activitywatch/***
 + .config/gtk-3.0/***
@@ -25,6 +24,11 @@
 + .config/Slack/***
 + .config/spotify/***
 + .config/Stretchly/***
++ .config/.gnupg/***
++ .local/
++ .local/share/
++ .local/share/JetBrains/***
++ .local/share/keyrings/***
 + dev/***
 
 - *
