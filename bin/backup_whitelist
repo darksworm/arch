@@ -1,14 +1,7 @@
 - Cache
 - Service Worker
 - .terraform
-+ .zlogin
-+ .zlogout
-+ .zpreztorc
-+ .zprofile
-+ .zprezto/***
-+ .zshenv
 + .zsh_history
-+ .zshrc
 + .ssh/***
 + .aws/***
 + .bashrc

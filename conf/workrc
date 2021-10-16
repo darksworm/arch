@@ -1,0 +1,4 @@
+export PATH=$PATH:/home/work/bin
+
+alias tf=terraform fmt && terraform
+alias eb-legacy="source /home/work/dev/beanstalk/virtualenv/bin/activate && cd /home/work/dev/beanstalk/legacy && eb list"

@@ -2,7 +2,7 @@
 
 set -e
 
-pacman -S --noconfirm alsa pulseaudio pulseaudio-alsa pavucontrol
+pacman -S --noconfirm alsa pulseaudio pulseaudio-alsa pavucontrol playerctl
 
 for USERNAME in ilmars work; do
     mkdir -p /home/$USERNAME/.config

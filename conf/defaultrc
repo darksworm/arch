@@ -1,0 +1,3 @@
+bindkey -e
+bindkey "\e[H~" beginning-of-line
+bindkey "\e[4~" end-of-line

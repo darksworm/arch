@@ -13,6 +13,9 @@ for USERNAME in ilmars work; do
         for rcfile in "\${ZDOTDIR:-\$HOME}"/.zprezto/runcoms/^README.md(.N); do
           ln -sf "\$rcfile" "\${ZDOTDIR:-\$HOME}/.\${rcfile:t}"
         done
+
+	( cat ~/.zshrc | grep defaultrc ) || echo source /opt/arch/conf/defaultrc >> ~./zshrc
+	( cat ~/.zshrc | grep ${USERNAME}rc ) || echo source /opt/arch/conf/${USERNAME}rc  >> ~./zshrc
 EOF
     chsh -s $(which zsh) $USERNAME
 done
