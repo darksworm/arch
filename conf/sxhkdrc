@@ -11,7 +11,7 @@ control + shift + s
    scrot '/tmp/%F_%T_$wx$h.png' -s -e 'xclip -selection clipboard -target image/png -i $f'
  
 super + F12
-    ~/.install/bin/blurlocklog
+    xset s activate
 
 super + F1
     prepkb

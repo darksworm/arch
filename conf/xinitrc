@@ -2,6 +2,7 @@
 
 export GTK_THEME=Arc-Dark
 export _JAVA_AWT_WM_NONREPARENTING=1 # fix for IDEA blank windows
+export XDG_CONFIG_HOME=$HOME/.config
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.xmodmap
@@ -33,8 +34,7 @@ pa-applet & # pulseaudio applet
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & # password prompts for privileged actions
 xfce4-power-manager & # display brightness
 
-compton & # transparency
-xautolock -time 10 -locker ~/.install/bin/blurlocklog -corners ---- & # pc locker
+compton --backend glx --paint-on-overlay & # transparency
 
 redshift -O 4200 &
 
@@ -58,5 +58,6 @@ fi
 ( sleep 5 && bluetooth-autoconnect ) & # sometimes the autoconnect doesn't work the first time
 
 xbanish & # hide cursor when typing
+xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 
 exec dwm
