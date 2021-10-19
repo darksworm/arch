@@ -6,7 +6,7 @@ ln -sf $BIN_DIR/defaultmon /bin/defaultmon
 chmod --reference=$(which ls) /bin/defaultmon
 
 sudo -i -u ilmars sh << EOF
-yay -S --noconfirm xbanish nitrogen sxhkd xcape cbatticon networkmanager pa-applet-git xfce4-power-manager compton xautolock redshift disper
+yay -S --noconfirm xbanish nitrogen sxhkd xcape cbatticon networkmanager pa-applet-git xfce4-power-manager compton xautolock redshift disper nerd-fonts-hack otf-inconsolata-powerline-git
 EOF
 
 for USERNAME in ilmars work; do
@@ -22,6 +22,8 @@ cd dwm && make install
 cd /opt
 git clone https://github.com/darksworm/st
 cd st && make install
+
+
 
 cd /opt
 git clone https://github.com/darksworm/dmenu-flexipatch.git dmenu

@@ -16,6 +16,12 @@ super + F12
 super + F1
     prepkb
 
+super + d
+    rofi -show drun
+
+super + w
+    rofi -show window
+
 Print
     scrot
 
