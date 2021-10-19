@@ -22,6 +22,9 @@ super + d
 super + w
     rofi -show window
 
+super; super
+    rofi -show window
+
 Print
     scrot
 
