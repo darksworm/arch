@@ -57,6 +57,6 @@ fi
 ( sleep 5 && bluetooth-autoconnect ) & # sometimes the autoconnect doesn't work the first time
 
 xbanish & # hide cursor when typing
-xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
+xss-lock -n /usr/lib/xsecurelock/dimmer -l -- lock &
 
 exec dwm

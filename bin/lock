@@ -1,0 +1,26 @@
+#!/bin/sh
+
+LOCKSCREEN_DIR=~/.cache # this dir must contain a dir called 'lockscreen'
+BLURTYPE="0x8" 		# http://www.imagemagick.org/Usage/blur/#blur_args
+
+export XSECURELOCK_SHOW_HOSTNAME=0
+export XSECURELOCK_SHOW_USERNAME=0
+export XSECURELOCK_SAVER=saver_mpv
+export XSECURELOCK_LIST_VIDEOS_COMMAND="find ${LOCKSCREEN_DIR}/lockscreen/ -type f"
+export XSECURELOCK_IMAGE_DURATION_SECONDS=7200
+export XSECURELOCK_AUTH_BACKGROUND_COLOR=#6272a4
+export XSECURELOCK_AUTH_FOREGROUND_COLOR=#f8f8f2
+export XSECURELOCK_PASSWORD_PROMPT=cursor
+export XSECURELOCK_DIM_TIME_MS=6000
+XSECURELOCK_DIM_COLOR=#282a36
+XSECURELOCK_AUTH_WARNING_COLOR=#ff5555
+XSECURELOCK_DIM_TIME_MS=5000
+
+if [ -z ${LOCKSCREEN_DIR+x} ]; then exit 1; fi # bail if lockscreen dir is not set
+
+scrot ${LOCKSCREEN_DIR}/lockscreen-plain.png --overwrite &&
+convert -scale 10% -scale 1000% ${LOCKSCREEN_DIR}/lockscreen-plain.png ${LOCKSCREEN_DIR}/lockscreen-blurred.png &&
+mv ${LOCKSCREEN_DIR}/lockscreen-blurred.png ${LOCKSCREEN_DIR}/lockscreen/lockscreen.png
+
+xsecurelock &&
+rm -rf ${LOCKSCREEN_DIR}/lockscreen/lockscreen.png ${LOCKSCREEN_DIR}/lockscreen-plain.png
