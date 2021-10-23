@@ -8,7 +8,7 @@ super + Return
     st
 
 control + shift + s
-   scrot '/tmp/%F_%T_$wx$h.png' -s -e 'xclip -selection clipboard -target image/png -i $f'
+   flameshot gui
  
 super + F12
     xset s activate

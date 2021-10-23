@@ -32,7 +32,6 @@ pa-applet & # pulseaudio applet
 ( blueman-applet && bluetooth-autoconnect -d ) &
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & # password prompts for privileged actions
-xfce4-power-manager & # display brightness
 
 compton --backend glx --paint-on-overlay & # transparency
 

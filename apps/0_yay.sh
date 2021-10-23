@@ -2,12 +2,14 @@
 
 set -e
 
+# yay needs go to compile
 pacman -S --noconfirm go
-cd /opt
-git clone https://aur.archlinux.org/yay-git.git
-chown -R ilmars yay-git
-su ilmars -c "cd /opt/yay-git && makepkg --noconfirm"
-cd yay-git
-pacman -U --noconfirm $(ls -1 | grep tar.zst)
-cd .. && rm -rf yay-git
-pacman -R --noconfirm go
+
+git clone https://aur.archlinux.org/yay-git.git /opt/yay
+chown -R "$INSTALLER_USER" /opt/yay
+
+su "$INSTALLER_USER" -c "cd /opt/yay && makepkg --noconfirm"
+
+pacman -U --noconfirm /opt/yayt/*.tar.zst
+
+rm -rf /opt/yay

@@ -2,7 +2,7 @@
 
 set -e
 
-HOSTNAME=blacktop
+. /.config
 
 echo We are now CHROOT!
 
@@ -11,10 +11,12 @@ passwd
 
 groupadd sudo
 
-for USERNAME in ilmars work; do
-    echo Adding user $USERNAME
-    useradd -m -G sudo $USERNAME
-    passwd $USERNAME
+[ -z "$GUI_USERS" ] && ( echo "please define GUI_USERS variable" && exit 1 )
+
+for USERNAME in $GUI_USERS; do
+    echo Adding user "$USERNAME"
+    useradd -m -G sudo "$USERNAME"
+    passwd "$USERNAME"
 done
 
 ln -sf /usr/share/zoneinfo/Europe/Riga /etc/localtime
@@ -28,7 +30,9 @@ locale-gen
 echo LANG=en_US.UTF-8		>  /etc/locale.conf
 echo LC_ALL=en_US.UTF-8		>> /etc/locale.conf
 
-echo $HOSTNAME > /etc/hostname
+[ -z "$HOSTNAME" ] && ( echo "please define HOSTNAME variable" && exit 1 )
+
+echo "$HOSTNAME" > /etc/hostname
 
 echo "127.0.0.1     localhost" >    /etc/hosts
 echo "::1           localhost" >>   /etc/hosts

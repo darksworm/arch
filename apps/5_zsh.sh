@@ -4,7 +4,7 @@ set -e
 
 pacman -S --noconfirm zsh
 
-for USERNAME in ilmars work; do
+for USERNAME in $GUI_USERS; do
     sudo -i -u $USERNAME zsh << EOF
         git clone --recursive https://github.com/sorin-ionescu/prezto.git "\${ZDOTDIR:-\$HOME}/.zprezto"
         

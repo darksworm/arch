@@ -2,13 +2,11 @@
 
 set -e
 
-export CONF_DIR=/opt/arch/conf
-export STATIC_DIR=/opt/arch/conf
-export BIN_DIR=/opt/arch/bin
+. /opt/arch/.config
 
-for SCRIPT in $(ls -1 /opt/arch/apps); do
+for SCRIPT in /opt/arch/apps/*; do
     echo
     echo "Running $SCRIPT"
-    chmod +x /opt/arch/apps/$SCRIPT
-    sh /opt/arch/apps/$SCRIPT
+    chmod +x "/opt/arch/apps/${SCRIPT}"
+    sh "/opt/arch/apps/${SCRIPT}" || echo "FAILED ${SCRIPT}"
 done

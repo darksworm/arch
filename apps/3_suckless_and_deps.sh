@@ -2,37 +2,15 @@
 
 set -e
 
-ln -sf $BIN_DIR/defaultmon /bin/defaultmon
-chmod --reference=$(which ls) /bin/defaultmon
+yay_install cbatticon networkmanager pa-applet-git compton rofi nerd-fonts-hack otf-inconsolata-powerline-git rofi
 
-sudo -i -u ilmars sh << EOF
-yay -S --noconfirm xbanish nitrogen sxhkd xcape cbatticon networkmanager pa-applet-git xfce4-power-manager compton xautolock redshift disper nerd-fonts-hack otf-inconsolata-powerline-git
-EOF
+REPOS=(dwm st dmenu)
 
-for USERNAME in ilmars work; do
-    mkdir -p /home/$USERNAME/.config/nitrogen
-    ln -sf $CONF_DIR/nitrogen.cfg /home/$USERNAME/.config/nitrogen/nitrogen.cfg
-    chown -R $USERNAME /home/$USERNAME/.config/nitrogen
+for REPO in $REPOS; do
+  git clone https://github.com/darksworm/$REPO /opt/$REPO
+  ( cd /opt/$REPO && make install )
+  ( cd /opt/$REPO && git remote rm origin && git remote add origin git@github.com:darksworm/$REPO.git )
+
+  chgrp -R maintainers /opt/$REPO
+  chmod -R g+rwx /opt/$REPO
 done
-
-cd /opt
-git clone https://github.com/darksworm/dwm
-cd dwm && make install
-
-cd /opt
-git clone https://github.com/darksworm/st
-cd st && make install
-
-
-
-cd /opt
-git clone https://github.com/darksworm/dmenu-flexipatch.git dmenu
-cd dmenu && make install
-
-groupadd maintainers
-
-usermod -a -G maintainers ilmars
-usermod -a -G maintainers work
-
-chgrp -R maintainers /opt/dwm /opt/st /opt/arch /opt/dmenu
-chmod -R g+rwx /opt/dwm /opt/st /opt/arch /opt/dmenu

@@ -1,14 +1,14 @@
 #!/bin/sh
 
-if [ "$(whoami)" != "work" ]; then
-    echo This should be run as the work user!
+if [ "$(whoami)" != "$1" ]; then
+    echo This should be run as the $1 user!
     exit 1
 fi
 
 BASEDIR=$(dirname "$0")
-NAS_BACKUP_DIR=/storage/tank/laptop-backup/work
+NAS_BACKUP_DIR=/storage/tank/laptop-backup/$1
 
 rsync -avzt \
       --include-from $BASEDIR/backup_whitelist \
       ilmars@192.168.1.111:$NAS_BACKUP_DIR/home/ \
-      /home/work/
+      /home/$1/
