@@ -45,3 +45,6 @@ F7
 
 F8
     bluetooth-autoconnect
+
+XF86MonBrightness{Up,Down}
+    xbacklight {+,-}5
