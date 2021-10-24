@@ -3,6 +3,7 @@
 export GTK_THEME=dracula
 export _JAVA_AWT_WM_NONREPARENTING=1 # fix for IDEA blank windows
 export XDG_CONFIG_HOME=$HOME/.config
+export EDITOR=vim
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.xmodmap
