@@ -21,6 +21,8 @@ if !filereadable(vimplug_exists)
   autocmd VimEnter * PlugInstall
 endif
 
+let g:polyglot_disabled = ['python']
+
 " Required:
 call plug#begin(expand('~/.config/nvim/plugged'))
 
@@ -69,8 +71,7 @@ Plug 'honza/vim-snippets'
 
 "" Color
 "" Plug 'tomasr/molokai'
-"" Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 "" Plug 'cocopon/iceberg.vim'
 
 "*****************************************************************************
@@ -137,7 +138,6 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'ericcurtin/CurtineIncSw.vim'
 
 let g:vbox = {'dir': '/home/ilmars/.install/static/vim/templates'}
-let g:gruvbox_contrast_dark = "hard"
 let g:lh_basedir = '~/.config/nvim/local_history'
 let g:lh_autobackup_first = 1
 let g:lh_autobackup_size  = 51200
@@ -209,7 +209,7 @@ set ruler
 set number
 
 let no_buffers_menu=1
-silent! colorscheme gruvbox 
+silent! colorscheme dracula
 
 set mousemodel=popup
 set t_Co=256
@@ -546,7 +546,6 @@ let g:airline#extensions#virtualenv#enabled = 1
 
 " Syntax highlight
 " Default highlight is better than polyglot
-let g:polyglot_disabled = ['python']
 let python_highlight_all = 1
 
 

@@ -1,0 +1,10 @@
+#!/bin/sh
+alias get_volume="pamixer --get-volume"
+
+if [ $(pamixer --get-mute) == "true" ]; then
+	VOL="$(get_volume)!"
+else
+	VOL="$(get_volume)"
+fi
+
+echo $VOL >> /tmp/xob/volume

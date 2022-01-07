@@ -1,5 +1,5 @@
-super + o
-    discord
+#super + o
+#    discord
 
 super + c
     brave
@@ -17,7 +17,7 @@ super + F1
     prepkb
 
 super + d
-    rofi -show drun
+    rofi -show combi -combi-modi "drun,ssh" -modi combi
 
 super + w
     rofi -show window
@@ -47,4 +47,13 @@ F8
     bluetooth-autoconnect
 
 XF86MonBrightness{Up,Down}
-    xbacklight {+,-}5
+    xbacklight {+,-}5 && update_backlight
+
+XF86Audio{Raise,Lower}Volume
+    pamixer -{i,d}5 && update_volume
+
+XF86AudioMute
+    ( pamixer --get-mute && pamixer -u || pamixer -m  ) && update_volume
+
+F11
+    qalculate-gtk

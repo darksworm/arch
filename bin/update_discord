@@ -1,0 +1,10 @@
+#!/bin/sh
+cd /opt
+rm -rf /opt/discord
+wget 'https://discord.com/api/download?platform=linux&format=tar.gz' -O discord.tar.gz
+tar -xvf discord.tar.gz
+rm -rf discord.tar.gz
+ln -sf /opt/Discord/Discord /bin/Discord
+ln -sf /opt/Discord/discord.desktop /usr/share/applications/discord.desktop
+sed -i 's/\/usr\/share\/discord\/Discord/\/opt\/Discord\/Discord/' /opt/Discord/discord.desktop
+

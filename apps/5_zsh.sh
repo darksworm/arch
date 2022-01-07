@@ -17,5 +17,7 @@ for USERNAME in $GUI_USERS; do
 	( cat ~/.zshrc | grep defaultrc ) || echo source /opt/arch/conf/defaultrc >> ~./zshrc
 	( cat ~/.zshrc | grep ${USERNAME}rc ) || echo source /opt/arch/conf/${USERNAME}rc  >> ~./zshrc
 EOF
+    rm -f /home/$USERNAME/.zprofile
+    ln -sf $CONF_DIR/zprofile /home/$USERNAME/.zprofile
     chsh -s $(which zsh) $USERNAME
 done

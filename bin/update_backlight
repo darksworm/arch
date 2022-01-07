@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xbacklight -get | awk '{print int($1)}' >> /tmp/xob/backlight

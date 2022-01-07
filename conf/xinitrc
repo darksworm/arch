@@ -1,10 +1,5 @@
 #!/bin/sh
 
-export GTK_THEME=dracula
-export _JAVA_AWT_WM_NONREPARENTING=1 # fix for IDEA blank windows
-export XDG_CONFIG_HOME=$HOME/.config
-export EDITOR=vim
-
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -28,7 +23,7 @@ sxhkd &
 
 cbatticon & # battery tray
 nm-applet & # network status applet
-pa-applet & # pulseaudio applet
+#pa-applet & # pulseaudio applet
 
 ( blueman-applet && bluetooth-autoconnect -d ) &
 
@@ -41,23 +36,37 @@ redshift -O 4200 &
 st -c "tmux" -e "tmux" &
 ( which emojigun && emojigun ) &
 
-if [ $USER == "work" ]; then
-    #( which aw-qt && aw-qt ) &
-    ( which stretchly && stretchly ) &
-    ( which slack && slack ) &
-    ( which intellij-idea-ultimate-edition && intellij-idea-ultimate-edition ) &
-    ( which datagrip && datagrip ) &
-    ( which brave && brave ) &
-fi
+# if [ $USER == "work" ]; then
+#    ( which aw-qt && aw-qt ) &
+#    ( which slack && slack ) &
+#    ( which intellij-idea-ultimate-edition && intellij-idea-ultimate-edition ) &
+#    ( which datagrip && datagrip ) &
+#    ( sleep 4 && which brave && brave ) &
+# fi
 
-if [ $USER == "ilmars" ]; then
-    ( which discord && discord ) &
-    ( which brave && brave ) &
-fi
+# if [ $USER == "ilmars" ]; then
+#     ( which discord && discord ) &
+#     ( sleep 4 && which brave && brave ) &
+# fi
+
+( which stretchly && stretchly ) &
 
 ( sleep 5 && bluetooth-autoconnect ) & # sometimes the autoconnect doesn't work the first time
 
 xbanish & # hide cursor when typing
 xss-lock -n /usr/lib/xsecurelock/dimmer -l -- lock &
+
+# setup x overlay bar for volume and backlight controls
+( mkdir -p /tmp/xob && mkfifo /tmp/xob/{backlight,volume} )
+( tail -f /tmp/xob/backlight | xob -t 1500 -s backlight ) & 
+( tail -f /tmp/xob/volume | xob -t 1500 -s volume ) &
+
+( which check_battery && while true; do check_battery; sleep 60; done ) &
+
+
+while true; do
+   xsetroot -name "$( date +"%F %R" )"
+   sleep 1m    # Update time every minute
+done &
 
 exec dwm
