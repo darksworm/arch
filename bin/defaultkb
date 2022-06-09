@@ -1,0 +1,5 @@
+#!/bin/bash
+
+setxkbmap lv && \
+    xset r rate 300 50 && \
+    xmodmap ~/.Xmodmap

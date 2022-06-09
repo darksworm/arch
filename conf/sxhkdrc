@@ -9,7 +9,7 @@ super + Return
 
 control + shift + s
    flameshot gui
- 
+
 super + F12
     xset s activate
 
@@ -41,7 +41,7 @@ XF86AudioPrev
     playerctl previous
 
 F7
-    /bin/defaultmon
+    /bin/defaultmon && /bin/defaultkb
 
 F8
     bluetooth-autoconnect
@@ -55,5 +55,5 @@ XF86Audio{Raise,Lower}Volume
 XF86AudioMute
     ( pamixer --get-mute && pamixer -u || pamixer -m  ) && update_volume
 
-F11
+F10
     qalculate-gtk

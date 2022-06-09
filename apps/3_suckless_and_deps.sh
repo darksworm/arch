@@ -2,7 +2,7 @@
 
 set -e
 
-yay_install cbatticon networkmanager pa-applet-git compton rofi nerd-fonts-hack otf-inconsolata-powerline-git rofi
+yay_install cbatticon networkmanager pa-applet-git compton rofi nerd-fonts-hack otf-inconsolata-powerline-git rofi ttf-inconsolata ttf-symbola noto-fonts
 
 REPOS=(dwm st dmenu)
 

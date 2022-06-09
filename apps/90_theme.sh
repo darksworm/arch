@@ -11,9 +11,7 @@ rm master.zip
 cd /tmp
 git clone https://github.com/dracula/rofi rofi
 
-sudo -i -u ilmars zsh << EOF
-yay -S --noconfirm breezex-cursor-theme plymouth-themes-dragon-git plymouth nitrogen
-EOF
+yay_install breezex-cursor-theme plymouth-themes-dragon-git plymouth nitrogen
 
 for USERNAME in ilmars work; do
     sudo -i -u $USERNAME zsh << EOF
@@ -50,3 +48,10 @@ sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet logle
 grub-mkconfig -o /boot/grub/grub.cfg
 
 sed -i "s/echo/#echo/" /boot/grub/grub.cfg
+
+yay_install dunst
+
+for USERNAME in $GUI_USERS; do
+    mkdir -p /home/$USERNAME/.config/dunst
+    ln -sf $CONF_DIR/dunstrc /home/$USERNAME/.config/dunst/dunstrc
+done

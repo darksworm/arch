@@ -262,7 +262,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'dracula'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -300,6 +300,8 @@ nnoremap <silent> <F3> :NERDTreeToggle<CR>
 nnoremap <silent> <C-s> :FZF<CR>
 nnoremap <silent> <C-f> :Ag<CR>
 nnoremap <silent> ; :
+
+nnoremap <F4> :r! date +"[\%Y-\%m-\%d \%H:\%M:\%S]"<cr>
 
 " grep.vim
 "nnoremap <silent> <leader>f :Rgrep<CR>
@@ -433,7 +435,7 @@ let g:fzf_history_dir="~/.fzfhistory"
 let g:ale_linters = {}
 
 " Tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
+" nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 " Disable visualbell
@@ -616,5 +618,6 @@ command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : 
 
 nnoremap ` :call CurtineIncSw()<CR>
 nnoremap <silent> <leader>h :call CurtineIncSw()<CR>
+
 
 set foldmethod=syntax

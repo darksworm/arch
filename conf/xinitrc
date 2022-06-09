@@ -58,7 +58,7 @@ xss-lock -n /usr/lib/xsecurelock/dimmer -l -- lock &
 
 # setup x overlay bar for volume and backlight controls
 ( mkdir -p /tmp/xob && mkfifo /tmp/xob/{backlight,volume} )
-( tail -f /tmp/xob/backlight | xob -t 1500 -s backlight ) & 
+( tail -f /tmp/xob/backlight | xob -t 1500 -s backlight ) &
 ( tail -f /tmp/xob/volume | xob -t 1500 -s volume ) &
 
 ( which check_battery && while true; do check_battery; sleep 60; done ) &
@@ -68,5 +68,7 @@ while true; do
    xsetroot -name "$( date +"%F %R" )"
    sleep 1m    # Update time every minute
 done &
+
+dunst &
 
 exec dwm
