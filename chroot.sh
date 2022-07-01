@@ -4,6 +4,8 @@ set -e
 
 . /.config
 
+echo Going to create users $GUI_USERS
+
 echo We are now CHROOT!
 
 echo Please enter a password for the root account

@@ -7,6 +7,6 @@ set -e
 for SCRIPT in /opt/arch/apps/*; do
     echo
     echo "Running $SCRIPT"
-    chmod +x "/opt/arch/apps/${SCRIPT}"
-    sh "/opt/arch/apps/${SCRIPT}" || echo "FAILED ${SCRIPT}"
+    chmod +x "${SCRIPT}"
+    sh "${SCRIPT}" || echo "FAILED ${SCRIPT}"
 done
