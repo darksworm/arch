@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
-yay_install cbatticon networkmanager pa-applet-git compton rofi nerd-fonts-hack otf-inconsolata-powerline-git rofi ttf-inconsolata ttf-symbola noto-fonts
+yay_install cbatticon networkmanager pa-applet-git picom rofi nerd-fonts-hack otf-inconsolata-powerline-git rofi ttf-inconsolata ttf-symbola noto-fonts
 
-REPOS=(dwm st dmenu)
+REPOS="dwm st dmenu"
 
 for REPO in $REPOS; do
   git clone https://github.com/darksworm/$REPO /opt/$REPO

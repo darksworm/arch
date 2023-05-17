@@ -12,5 +12,5 @@ for USERNAME in ilmars work; do
 done
 
 sudo -i -u ilmars sh << EOF
-yay -S --noconfirm intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre datagrip datagrip-jre
+#yay -S --noconfirm intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre datagrip datagrip-jre
 EOF

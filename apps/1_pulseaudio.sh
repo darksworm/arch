@@ -2,7 +2,7 @@
 
 set -e
 
-pacman -S --noconfirm alsa pulseaudio pulseaudio-alsa pavucontrol playerctl
+pacman -S --noconfirm alsa-lib alsa-utils pulseaudio pulseaudio-alsa pavucontrol playerctl
 
 for USERNAME in $GUI_USERS; do
     SYSTEMD_DIR=/home/$USERNAME/.config/systemd/user
@@ -11,7 +11,7 @@ for USERNAME in $GUI_USERS; do
 
     # pulseaudio is started via user-bound service via systemd
     cp $CONF_DIR/systemd/user/default.target.wants/pulseaudio.service $SYSTEMD_DIR/default.target.wants
-    cp $CONF_DIR/systemd/user/socket.target.wants/pulseaudio.socket   $SYSTEMD_DIR/socket.target.wants
+    cp $CONF_DIR/systemd/user/sockets.target.wants/pulseaudio.socket   $SYSTEMD_DIR/socket.target.wants
 
     chown -R $USERNAME $SYSTEMD_DIR
 done

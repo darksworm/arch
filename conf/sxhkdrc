@@ -46,6 +46,9 @@ F7
 F8
     bluetooth-autoconnect
 
+F9
+    xrandr --output eDP1 --auto
+
 XF86MonBrightness{Up,Down}
     xbacklight {+,-}5 && update_backlight
 

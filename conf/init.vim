@@ -1,4 +1,4 @@
-" vim-bootstrap 
+" vim-bootstrap
 
 "*****************************************************************************
 "" Vim-PLug core
@@ -24,7 +24,7 @@ endif
 let g:polyglot_disabled = ['python']
 
 " Required:
-call plug#begin(expand('~/.config/nvim/plugged'))
+call plug#begin()
 
 "*****************************************************************************
 "" Plug install packages
@@ -216,22 +216,20 @@ set t_Co=256
 set guioptions=egmrti
 set gfn=Monospace\ 10
 
-if has("gui_running")
-  if has("gui_mac") || has("gui_macvim")
-    set guifont=Menlo:h12
-    set transparency=7
-  endif
-else
-  let g:CSApprox_loaded = 1
-
-  " IndentLine
-  let g:indentLine_enabled = 1
-  let g:indentLine_concealcursor = 0
-  let g:indentLine_char = '┆'
-  let g:indentLine_faster = 1
-
-  
-endif
+"if has("gui_running")
+"  if has("gui_mac") || has("gui_macvim")
+"    set guifont=Menlo:h12
+"    set transparency=7
+"  endif
+"else
+"  let g:CSApprox_loaded = 1
+"
+"  " IndentLine
+"  let g:indentLine_enabled = 1
+"  let g:indentLine_concealcursor = 0
+"  let g:indentLine_char = '┆'
+"  let g:indentLine_faster = 1
+"endif
 
 
 

@@ -1,5 +1,8 @@
 #!/bin/sh
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+export EDITOR=vim
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -21,7 +24,7 @@ sxhkd &
   xset r rate 300 50 && \
   xmodmap ~/.Xmodmap ) &
 
-cbatticon & # battery tray
+cbatticon BAT0 & # battery tray
 nm-applet & # network status applet
 #pa-applet & # pulseaudio applet
 
@@ -29,7 +32,8 @@ nm-applet & # network status applet
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & # password prompts for privileged actions
 
-compton --backend glx --paint-on-overlay & # transparency
+#compton --backend glx --paint-on-overlay & # transparency
+picom & # transparency
 
 redshift -O 4200 &
 
@@ -49,12 +53,15 @@ st -c "tmux" -e "tmux" &
 #     ( sleep 4 && which brave && brave ) &
 # fi
 
-( which stretchly && stretchly ) &
+#( which stretchly && stretchly ) &
 
 ( sleep 5 && bluetooth-autoconnect ) & # sometimes the autoconnect doesn't work the first time
 
 xbanish & # hide cursor when typing
-xss-lock -n /usr/lib/xsecurelock/dimmer -l -- lock &
+
+xss-lock -n /usr/lib/xsecurelock/dimmer -l -- lock & # set up lockscreen
+xset s on & # enable locking screen upon inactivity
+xset s 300 & # lock screen after 5 minutes of inactivity
 
 # setup x overlay bar for volume and backlight controls
 ( mkdir -p /tmp/xob && mkfifo /tmp/xob/{backlight,volume} )
@@ -70,5 +77,12 @@ while true; do
 done &
 
 dunst &
+
+slack &
+spotify &
+
+eval $(ssh-agent) > /dev/null
+
+drata-agent &
 
 exec dwm
